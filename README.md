@@ -1,6 +1,9 @@
 # Cuddlefish
 <img align="right" src="https://github.com/arrdem/cuddlefish/raw/master/etc/cuddlefish.jpg" width=300/>
 
+In honor of cuddlefish.cs.utexas.edu, my old hacking partner and git's
+betentacled nature.
+
 A cute little git wrapper intended to be a light-weight, less
 featureful alternative to
 [clj-jgit](https://github.com/clj-jgit/clj-jgit).
