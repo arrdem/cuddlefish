@@ -1,4 +1,4 @@
-# cuddlefish
+# Cuddlefish
 <img align="right" src="https://github.com/arrdem/cuddlefish/raw/master/etc/cuddlefish.jpg" width=300/>
 
 A cute little git wrapper intended to be a light-weight, less
