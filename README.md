@@ -1,6 +1,8 @@
 # Cuddlefish
 <a alt="meglyman's adorable cuddlefish" href="https://meglyman.deviantart.com/art/Cuddlefish-68516815"><img align="right" src="https://github.com/arrdem/cuddlefish/raw/master/etc/cuddlefish.jpg" width=300/></a>
 
+[![Clojars Project](https://img.shields.io/clojars/v/me.arrdem/cuddlefish.svg)](https://clojars.org/me.arrdem/cuddlefish)
+
 In honor of cuddlefish.cs.utexas.edu, my old hacking partner and git's
 betentacled nature.
 
