@@ -3,3 +3,5 @@
 /**/.nrepl*
 /**/.cider*
 /**/.lein*
+/target/*
+/pom.xml
