@@ -1,5 +1,5 @@
 # Cuddlefish
-<img align="right" src="https://github.com/arrdem/cuddlefish/raw/master/etc/cuddlefish.jpg" width=300/>
+<a href="https://meglyman.deviantart.com/art/Cuddlefish-68516815"><img align="right" alt="meglyman's adorable cuddlefish" src="https://github.com/arrdem/cuddlefish/raw/master/etc/cuddlefish.jpg" width=300/></a>
 
 In honor of cuddlefish.cs.utexas.edu, my old hacking partner and git's
 betentacled nature.
