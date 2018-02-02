@@ -4,7 +4,9 @@
              "Reid \"arrdem\" McKenzie <me@arrdem.com>"]
    :license "https://www.eclipse.org/legal/epl-v10.html" }
   (:require [clojure.string :as str]
-            [clojure.java.shell :refer [sh]]))
+            [clojure.java.shell :refer [sh]]
+            [clojure.java.io :as io])
+  (:import [java.io BufferedReader StringReader]))
 
 (def git-describe-pattern
   #"(?<tag>.*)-(?<ahead>\d+)-g(?<ref>[0-9a-f]*)(?<dirty>(-dirty)?)")
@@ -110,3 +112,31 @@
     (cond->  status
       (not dirty?) (assoc :message (ref-message config "HEAD"))
       (not dirty?) (assoc :timestamp (ref-ts config "HEAD")))))
+
+(defn changed-files
+  "Given a pair of refs, enumerate the changed status of the repo
+  between those refs."
+  [{:keys [git] :as config} head tail]
+  {:pre [(resolve-ref config head)
+         (resolve-ref config tail)]}
+  (let [status-map {"A" :added
+                    "C" :copied
+                    "D" :deleted
+                    "M" :modified
+                    "R" :renamed
+                    "T" :typechange
+                    "U" :unmerged
+                    "X" :unknown
+                    "B" :broken}
+        status-pattern #"(?<status>[ACDMRTUXB])\t(?<fname>.*?)$"
+        cmd [git "diff" "--name-status" (format "%s...%s" head tail)]
+        out (:out (apply sh cmd))]
+    (->> (StringReader. out)
+         (BufferedReader.)
+         (line-seq)
+         (keep (fn [l]
+                 (let [matcher (re-matcher status-pattern l)]
+                   (if (.matches matcher)
+                     (let-groups [[status fname] matcher]
+                       [fname (status-map status)])))))
+         (into {}))))
