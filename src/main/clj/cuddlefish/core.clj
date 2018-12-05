@@ -97,7 +97,7 @@
   (let [{:keys [exit out] :as child} (apply sh [git "describe" "--tags" "--dirty" "--long"])]
     (if-not (= exit 0)
       (binding [*out* *err*]
-        (printf "Warning: lein-git-version git exited %d\n%s\n\n"
+        (printf "Warning: cuddlefish git exited %d\n%s\n\n"
                 exit child)
         (.flush *out*)
         {})
